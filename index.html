@@ -364,9 +364,17 @@
                 0 10px 30px rgba(93, 64, 55, 0.15),
                 inset 0 0 40px rgba(0,0,0,0.02);
             position: relative;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
             z-index: 1;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            will-change: transform;
+            perspective: 1000px;
+        }
+
+        .polaroid * {
+            pointer-events: none;
         }
 
         /* Rotacije za naraven videz - 3 slike v memory-wall */
@@ -430,14 +438,19 @@
             line-height: 1.2;
         }
 
-        /* Hover efekt - "vzameš v roke" */
+        /* Hover efekt - rahlo dvigni */
         .polaroid:hover {
-            transform: rotate(0deg) scale(1.1) translateY(-10px);
-            z-index: 100;
+            transform: scale(1.05) translateY(-8px);
             box-shadow:
-                0 20px 40px rgba(93, 64, 55, 0.3),
-                0 10px 20px rgba(0,0,0,0.15);
+                0 15px 35px rgba(93, 64, 55, 0.25),
+                0 8px 15px rgba(0,0,0,0.1);
         }
+
+        /* Ohrani rotacijo pri hover */
+        .memory-wall .polaroid:nth-child(1):hover { transform: rotate(-4deg) scale(1.05) translateY(-8px); }
+        .memory-wall .polaroid:nth-child(2):hover { transform: rotate(2deg) scale(1.05) translateY(-8px); }
+        .memory-wall .polaroid:nth-child(3):hover { transform: rotate(-3deg) scale(1.05) translateY(-8px); }
+        .story-main .polaroid.main-photo:hover { transform: rotate(3deg) scale(1.05) translateY(-8px); }
 
         /* Glavna slika - večja */
         .polaroid.main-photo {
