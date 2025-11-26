@@ -1,0 +1,2199 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANDL Food & Bar | Maribor</title>
+    <meta name="description" content="MANDL Food & Bar - najboljši burgerji v Mariboru. Sveže pečene brioche žemljice, domače omake, terasa ob Dravi pod najstarejšim mandljevcem.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&family=Sacramento&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ============================================
+           CSS VARIABLES - BARVNA PALETA KRAFT/PAPIRUS
+           ============================================ */
+        :root {
+            --papirus: #F5F0E6;
+            --kraft: #D4C4A8;
+            --kava: #8B7355;
+            --temna-rjava: #5D4037;
+            --zlata: #C9A227;
+            --bela: #FFFFFF;
+            --senca: rgba(93, 64, 55, 0.1);
+        }
+
+        /* ============================================
+           RESET & BASE STYLES
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: var(--papirus);
+            color: var(--temna-rjava);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        h4, h5, h6 {
+            font-family: 'Lora', serif;
+        }
+
+        .handwritten {
+            font-family: 'Sacramento', cursive;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* ============================================
+           NAVIGACIJA
+           ============================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(245, 240, 230, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px var(--senca);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--temna-rjava);
+        }
+
+        .logo span {
+            color: var(--zlata);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            font-family: 'Lora', serif;
+            font-size: 0.95rem;
+            color: var(--kava);
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--zlata);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--zlata);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--temna-rjava);
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        /* ============================================
+           HERO SEKCIJA
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(93, 64, 55, 0.6), rgba(93, 64, 55, 0.7)),
+                        url('images/hero-burger.jpg') center/cover no-repeat;
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--bela);
+            padding: 40px;
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-content .tagline {
+            font-family: 'Sacramento', cursive;
+            font-size: 2.5rem;
+            color: var(--zlata);
+            margin-bottom: 30px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-family: 'Lora', serif;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--zlata);
+            color: var(--bela);
+        }
+
+        .btn-primary:hover {
+            background: #b8911f;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--bela);
+            border: 2px solid var(--bela);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bela);
+            color: var(--temna-rjava);
+            transform: translateY(-3px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator i {
+            font-size: 2rem;
+            color: var(--bela);
+            opacity: 0.7;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-20px); }
+            60% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* ============================================
+           NAŠA ZGODBA SEKCIJA
+           ============================================ */
+        .story-section {
+            background: var(--kraft);
+        }
+
+        .story-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .story-header h2 {
+            font-size: 3rem;
+            color: var(--temna-rjava);
+            margin-bottom: 15px;
+        }
+
+        .story-header .subtitle {
+            font-family: 'Sacramento', cursive;
+            font-size: 2rem;
+            color: var(--kava);
+        }
+
+        .story-main {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .story-text p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: var(--temna-rjava);
+            line-height: 1.8;
+        }
+
+        .story-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .story-text p:first-of-type::first-letter {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            float: left;
+            margin-right: 15px;
+            line-height: 1;
+            color: var(--zlata);
+        }
+
+        /* STENA SPOMINOV - Polaroid stil */
+        .memory-wall {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 30px;
+            padding: 50px 30px;
+            margin-top: 40px;
+            background:
+                linear-gradient(135deg, rgba(212, 196, 168, 0.3) 0%, rgba(245, 240, 230, 0.5) 50%, rgba(212, 196, 168, 0.3) 100%);
+            border-radius: 20px;
+            position: relative;
+            border: 2px dashed var(--kraft);
+        }
+
+        .memory-wall::before {
+            content: 'Naši spomini';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--papirus);
+            padding: 5px 25px;
+            font-family: 'Sacramento', cursive;
+            font-size: 1.8rem;
+            color: var(--kava);
+        }
+
+        .polaroid {
+            background: #fefefe;
+            padding: 15px 15px 50px 15px;
+            box-shadow:
+                0 4px 6px rgba(0,0,0,0.1),
+                0 10px 30px rgba(93, 64, 55, 0.15),
+                inset 0 0 40px rgba(0,0,0,0.02);
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        /* Rotacije za naraven videz - 3 slike v memory-wall */
+        .memory-wall .polaroid:nth-child(1) { transform: rotate(-4deg); }
+        .memory-wall .polaroid:nth-child(2) { transform: rotate(2deg); margin-top: -15px; }
+        .memory-wall .polaroid:nth-child(3) { transform: rotate(-3deg); margin-top: 10px; }
+
+        /* Glavna slika ob besedilu - brez rotacije */
+        .story-main .polaroid.main-photo { transform: rotate(3deg); }
+
+        /* Bucika (Pin) */
+        .polaroid::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle at 30% 30%, #e8c547, var(--zlata) 60%, #9a7a1c);
+            border-radius: 50%;
+            box-shadow:
+                0 2px 4px rgba(0,0,0,0.3),
+                inset 0 -2px 4px rgba(0,0,0,0.2),
+                inset 0 2px 4px rgba(255,255,255,0.4);
+            z-index: 10;
+        }
+
+        /* Senca bucike */
+        .polaroid::after {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 18px;
+            background: linear-gradient(to bottom, #888, transparent);
+            border-radius: 2px;
+            z-index: 9;
+            opacity: 0.3;
+        }
+
+        .polaroid img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            filter: contrast(1.05) saturate(0.95);
+        }
+
+        .polaroid-caption {
+            position: absolute;
+            bottom: 10px;
+            left: 15px;
+            right: 15px;
+            font-family: 'Sacramento', cursive;
+            font-size: 1.4rem;
+            color: var(--kava);
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        /* Hover efekt - "vzameš v roke" */
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.1) translateY(-10px);
+            z-index: 100;
+            box-shadow:
+                0 20px 40px rgba(93, 64, 55, 0.3),
+                0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Glavna slika - večja */
+        .polaroid.main-photo {
+            padding: 20px 20px 60px 20px;
+        }
+
+        .polaroid.main-photo img {
+            width: 280px;
+            height: 280px;
+        }
+
+        .polaroid.main-photo .polaroid-caption {
+            font-size: 1.6rem;
+            bottom: 15px;
+        }
+
+        .quote-box {
+            background: var(--bela);
+            padding: 40px 50px;
+            border-radius: 15px;
+            margin: 0 auto;
+            max-width: 800px;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(93, 64, 55, 0.1);
+            border-left: 4px solid var(--zlata);
+        }
+
+        .quote-box::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            color: var(--zlata);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            opacity: 0.3;
+        }
+
+        .quote-box p {
+            font-family: 'Lora', serif;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--kava);
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-box .author {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-style: normal;
+            font-size: 1rem;
+            color: var(--temna-rjava);
+            margin-top: 20px;
+            display: block;
+        }
+
+        /* ============================================
+           MENI SEKCIJA
+           ============================================ */
+        .menu-section {
+            background: var(--papirus);
+        }
+
+        .menu-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .menu-header h2 {
+            font-size: 3rem;
+            color: var(--temna-rjava);
+            margin-bottom: 15px;
+        }
+
+        .menu-header p {
+            font-size: 1.2rem;
+            color: var(--kava);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .menu-badge {
+            display: inline-block;
+            background: var(--zlata);
+            color: var(--bela);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-card {
+            background: var(--bela);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px var(--senca);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(93, 64, 55, 0.2);
+        }
+
+        .menu-card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .menu-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .menu-card:hover .menu-card-image img {
+            transform: scale(1.1);
+        }
+
+        .menu-card-content {
+            padding: 25px;
+        }
+
+        .menu-card-content h3 {
+            font-size: 1.5rem;
+            color: var(--temna-rjava);
+            margin-bottom: 10px;
+        }
+
+        .menu-card-content p {
+            font-size: 0.95rem;
+            color: var(--kava);
+            margin-bottom: 15px;
+        }
+
+        .menu-card-content .highlight {
+            font-family: 'Sacramento', cursive;
+            font-size: 1.3rem;
+            color: var(--zlata);
+        }
+
+        .menu-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .menu-note {
+            font-size: 0.9rem;
+            color: var(--kava);
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        /* ============================================
+           KULINARIČNI DNEVNIK - NOVI MENI STIL
+           ============================================ */
+
+        /* Dnevnik Container */
+        .cookbook {
+            background: var(--bela);
+            border-radius: 5px;
+            box-shadow:
+                0 0 0 1px var(--kraft),
+                0 0 0 4px var(--papirus),
+                0 0 0 5px var(--kraft),
+                0 30px 60px rgba(93, 64, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Sredinska črta odstranjena - ni smiselna pri tej postavitvi */
+
+        /* Zavihki kot zaznamki */
+        .cookbook-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            background: var(--kraft);
+            padding: 0;
+            position: relative;
+        }
+
+        .cookbook-tab {
+            background: var(--papirus);
+            border: none;
+            padding: 20px 35px;
+            font-family: 'Lora', serif;
+            font-size: 1rem;
+            color: var(--kava);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            border-radius: 15px 15px 0 0;
+            margin: 10px 5px 0 5px;
+            border: 2px solid var(--kraft);
+            border-bottom: none;
+            transform: translateY(2px);
+        }
+
+        .cookbook-tab::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 15px;
+            right: 15px;
+            height: 3px;
+            background: var(--kraft);
+            border-radius: 2px;
+            opacity: 0.5;
+        }
+
+        .cookbook-tab:hover {
+            background: var(--bela);
+            color: var(--temna-rjava);
+        }
+
+        .cookbook-tab.active {
+            background: var(--bela);
+            color: var(--temna-rjava);
+            transform: translateY(0);
+            z-index: 10;
+            border-color: var(--zlata);
+        }
+
+        .cookbook-tab.active::before {
+            background: var(--zlata);
+            opacity: 1;
+        }
+
+        .cookbook-tab i {
+            display: block;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: var(--zlata);
+        }
+
+        .cookbook-tab span {
+            display: block;
+            font-size: 0.85rem;
+        }
+
+        /* Dnevniška stran */
+        .cookbook-page {
+            display: none;
+            padding: 50px;
+            min-height: 600px;
+            background:
+                linear-gradient(90deg, transparent 79px, #e8d9c5 79px, #e8d9c5 81px, transparent 81px),
+                linear-gradient(var(--papirus) 29px, #e8d9c5 29px, #e8d9c5 30px, var(--papirus) 30px);
+            background-size: 100% 100%, 100% 30px;
+            position: relative;
+        }
+
+        .cookbook-page.active {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 60px;
+            animation: pageFlip 0.5s ease;
+        }
+
+        @keyframes pageFlip {
+            from {
+                opacity: 0;
+                transform: rotateY(-5deg);
+            }
+            to {
+                opacity: 1;
+                transform: rotateY(0);
+            }
+        }
+
+        /* Leva stran - Slika */
+        .cookbook-image {
+            position: relative;
+        }
+
+        .cookbook-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow:
+                0 5px 20px rgba(93, 64, 55, 0.2),
+                0 0 0 5px var(--bela),
+                0 0 0 6px var(--kraft);
+            transform: rotate(-2deg);
+            transition: transform 0.3s ease;
+        }
+
+        .cookbook-image:hover img {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .cookbook-image-caption {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-3deg);
+            background: var(--zlata);
+            color: var(--bela);
+            padding: 10px 25px;
+            font-family: 'Sacramento', cursive;
+            font-size: 1.5rem;
+            white-space: nowrap;
+            box-shadow: 0 5px 15px rgba(201, 162, 39, 0.3);
+        }
+
+        .cookbook-image-note {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: #fffacd;
+            padding: 15px;
+            width: 120px;
+            font-family: 'Sacramento', cursive;
+            font-size: 1.1rem;
+            color: var(--temna-rjava);
+            transform: rotate(5deg);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .cookbook-image-note::before {
+            content: '📌';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.2rem;
+        }
+
+        /* Desna stran - Jedi */
+        .cookbook-content {
+            padding-left: 40px;
+            border-left: none;
+        }
+
+        .cookbook-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--temna-rjava);
+            margin-bottom: 5px;
+            position: relative;
+        }
+
+        .cookbook-subtitle {
+            font-family: 'Sacramento', cursive;
+            font-size: 2rem;
+            color: var(--zlata);
+            margin-bottom: 20px;
+        }
+
+        .cookbook-intro {
+            font-style: italic;
+            color: var(--kava);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--kraft);
+            line-height: 1.8;
+        }
+
+        /* Jedi v stilu dnevnika */
+        .dish-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .dish-item {
+            padding: 20px 0;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: default;
+        }
+
+        .dish-item:hover {
+            background: rgba(212, 196, 168, 0.2);
+            margin: 0 -20px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .dish-header {
+            display: flex;
+            align-items: baseline;
+            gap: 15px;
+            margin-bottom: 8px;
+        }
+
+        .dish-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--temna-rjava);
+            flex-shrink: 0;
+        }
+
+        .dish-line {
+            flex-grow: 1;
+            border-bottom: 2px dotted var(--kraft);
+            margin-bottom: 5px;
+        }
+
+        .dish-badge {
+            background: var(--zlata);
+            color: var(--bela);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .dish-badge.spicy {
+            background: #e74c3c;
+        }
+
+        .dish-badge.vegan {
+            background: #27ae60;
+        }
+
+        .dish-badge.premium {
+            background: linear-gradient(135deg, #C9A227, #8B7355);
+        }
+
+        .dish-description {
+            font-family: 'Lora', serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--kava);
+            line-height: 1.7;
+            padding-left: 0;
+        }
+
+        /* Ročno narisani elementi */
+        .dish-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+        }
+
+        .dish-item:hover .dish-icon {
+            opacity: 0.7;
+        }
+
+        /* Dekorativni elementi */
+        .cookbook-decoration {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.1;
+            color: var(--kava);
+        }
+
+        .cookbook-decoration.top-right {
+            top: 20px;
+            right: 20px;
+        }
+
+        .cookbook-decoration.bottom-left {
+            bottom: 20px;
+            left: 20px;
+        }
+
+        /* Page corner fold effect */
+        .cookbook-page::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, transparent 50%, var(--kraft) 50%);
+            box-shadow: -2px -2px 5px rgba(0,0,0,0.1);
+        }
+
+        .menu-item {
+            background: var(--bela);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--senca);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(93, 64, 55, 0.15);
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .menu-item-header h4 {
+            font-size: 1.2rem;
+            color: var(--temna-rjava);
+        }
+
+        .menu-item-badge {
+            background: var(--zlata);
+            color: var(--bela);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .menu-item-badge.spicy {
+            background: #e74c3c;
+        }
+
+        .menu-item-badge.vegan {
+            background: #27ae60;
+        }
+
+        .menu-item-badge.premium {
+            background: linear-gradient(135deg, #C9A227, #8B7355);
+        }
+
+        .menu-item-desc {
+            font-size: 0.95rem;
+            color: var(--kava);
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           OCENE SEKCIJA
+           ============================================ */
+        .reviews-section {
+            background: var(--temna-rjava);
+            color: var(--bela);
+        }
+
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .reviews-header h2 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .reviews-header .rating {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .reviews-header .stars {
+            color: var(--zlata);
+            font-size: 1.5rem;
+        }
+
+        .reviews-header .rating-text {
+            font-size: 1.3rem;
+            color: var(--kraft);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 35px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .review-card .stars {
+            color: var(--zlata);
+            margin-bottom: 20px;
+        }
+
+        .review-card p {
+            font-family: 'Lora', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: var(--papirus);
+        }
+
+        .review-card .author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .review-card .author-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--zlata);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--temna-rjava);
+        }
+
+        .review-card .author-info span {
+            display: block;
+        }
+
+        .review-card .author-info .name {
+            font-weight: 600;
+            color: var(--bela);
+        }
+
+        .review-card .author-info .source {
+            font-size: 0.85rem;
+            color: var(--kraft);
+        }
+
+        /* ============================================
+           KONTAKT SEKCIJA
+           ============================================ */
+        .contact-section {
+            background: var(--kraft);
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .contact-header h2 {
+            font-size: 3rem;
+            color: var(--temna-rjava);
+            margin-bottom: 15px;
+        }
+
+        .contact-header p {
+            font-size: 1.2rem;
+            color: var(--kava);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .info-card {
+            background: var(--papirus);
+            padding: 30px;
+            border-radius: 15px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .info-card i {
+            font-size: 1.5rem;
+            color: var(--zlata);
+            width: 50px;
+            height: 50px;
+            background: var(--kraft);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .info-card h4 {
+            font-size: 1.2rem;
+            color: var(--temna-rjava);
+            margin-bottom: 8px;
+        }
+
+        .info-card p, .info-card a {
+            color: var(--kava);
+            font-size: 1rem;
+        }
+
+        .info-card a:hover {
+            color: var(--zlata);
+        }
+
+        .hours-table {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .hours-table tr {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+        }
+
+        .hours-table .closed {
+            color: #c0392b;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: var(--temna-rjava);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bela);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--zlata);
+            transform: translateY(-5px);
+        }
+
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px var(--senca);
+            height: 100%;
+            min-height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .reservation-button {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: linear-gradient(135deg, var(--zlata), #b8911f);
+            color: var(--bela);
+            padding: 20px 30px;
+            border-radius: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.3);
+        }
+
+        .reservation-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(201, 162, 39, 0.4);
+        }
+
+        .reservation-button i {
+            font-size: 2rem;
+        }
+
+        .reservation-button span {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .reservation-button strong {
+            font-size: 1.2rem;
+            font-family: 'Lora', serif;
+        }
+
+        .reservation-button small {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 3px;
+        }
+
+        .wolt-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #00c2e8;
+            color: var(--bela);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .wolt-button:hover {
+            background: #00a8cc;
+            transform: translateY(-3px);
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer {
+            background: var(--temna-rjava);
+            color: var(--kraft);
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        footer .logo {
+            color: var(--bela);
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        footer .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 992px) {
+            .story-main {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .story-main .polaroid.main-photo {
+                justify-self: center;
+                order: -1;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .map-container {
+                min-height: 300px;
+            }
+
+            .category-header {
+                grid-template-columns: 1fr;
+            }
+
+            .category-header img {
+                height: 200px;
+            }
+
+            .category-info {
+                padding: 25px;
+            }
+
+            .menu-items {
+                grid-template-columns: 1fr;
+            }
+
+            .signature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Cookbook responsive */
+            .cookbook-page.active {
+                grid-template-columns: 1fr;
+                padding: 30px;
+            }
+
+            .cookbook-image {
+                order: -1;
+            }
+
+            .cookbook-image img {
+                height: 300px;
+                transform: rotate(0);
+            }
+
+            .cookbook-image-note {
+                right: 10px;
+                top: 10px;
+            }
+
+            .cookbook-content {
+                padding-left: 0;
+            }
+
+            .cookbook::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--papirus);
+                flex-direction: column;
+                align-items: center;
+                padding: 30px;
+                gap: 25px;
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+                box-shadow: 0 10px 30px var(--senca);
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content .tagline {
+                font-size: 1.8rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .story-header h2,
+            .menu-header h2,
+            .reviews-header h2,
+            .contact-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .story-main {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .story-main .polaroid.main-photo {
+                justify-self: center;
+                transform: rotate(2deg);
+            }
+
+            .memory-wall {
+                gap: 20px;
+                padding: 40px 15px 30px;
+                margin-top: 30px;
+            }
+
+            .memory-wall::before {
+                font-size: 1.4rem;
+                top: -12px;
+            }
+
+            .polaroid {
+                padding: 10px 10px 35px 10px;
+            }
+
+            .polaroid img {
+                width: 130px;
+                height: 130px;
+            }
+
+            .polaroid.main-photo img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .polaroid-caption {
+                font-size: 1rem;
+            }
+
+            .memory-wall .polaroid:nth-child(1),
+            .memory-wall .polaroid:nth-child(2),
+            .memory-wall .polaroid:nth-child(3) {
+                margin-top: 0;
+            }
+
+            .quote-box {
+                padding: 30px 25px;
+                margin: 0 10px;
+            }
+
+            .quote-box p {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+                letter-spacing: 1px;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Cookbook mobile */
+            .cookbook-tabs {
+                flex-wrap: wrap;
+            }
+
+            .cookbook-tab {
+                padding: 12px 20px;
+                font-size: 0.85rem;
+            }
+
+            .cookbook-tab i {
+                font-size: 1.2rem;
+            }
+
+            .cookbook-page.active {
+                padding: 20px;
+            }
+
+            .cookbook-title {
+                font-size: 1.8rem;
+            }
+
+            .cookbook-subtitle {
+                font-size: 1.5rem;
+            }
+
+            .dish-name {
+                font-size: 1.1rem;
+            }
+
+            .cookbook-image-caption {
+                font-size: 1.2rem;
+                padding: 8px 15px;
+            }
+
+            .cookbook-image-note {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGACIJA -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">MANDL <span>&</span> BAR</a>
+            <ul class="nav-links">
+                <li><a href="#zgodba">Naša zgodba</a></li>
+                <li><a href="#meni">Meni</a></li>
+                <li><a href="#ocene">Ocene</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+            <div class="nav-toggle" onclick="toggleNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SEKCIJA -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>MANDL FOOD & BAR</h1>
+            <p class="tagline">Postanite del naše družine</p>
+            <p>Uživajte v naših sočnih burgerjih, postreženih v brioche žemljicah, ki jih Alen vsako jutro sveže speče, medtem ko sedite na naši idilični terasi ob Dravi, pod senco najstarejšega mandljevca v tem delu Slovenije.</p>
+            <div class="hero-buttons">
+                <a href="#meni" class="btn btn-primary"><i class="fas fa-utensils"></i> Odkrij naše specialitete</a>
+                <a href="tel:070800629" class="btn btn-secondary"><i class="fas fa-phone-alt"></i> Rezerviraj mizo</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- NAŠA ZGODBA SEKCIJA -->
+    <section id="zgodba" class="story-section">
+        <div class="container">
+            <div class="story-header">
+                <h2>Naša zgodba</h2>
+                <p class="subtitle">Tanja & Alen</p>
+            </div>
+
+            <!-- Zgornji del: besedilo + glavna slika -->
+            <div class="story-main">
+                <div class="story-text">
+                    <p>Tanja in Alen sta gostinca po duši. On z izobrazbo iz gostinske šole in dolgoletno prakso, ona že od otroštva, ko je dedkovo polico preoblikovala v "šankomat". Skupna strast do hrane ju je pripeljala do Mandla – lokala, poimenovanega po najstarejšem mandljevcu v tem delu Slovenije, ki s svojo senco bogati našo teraso ob Dravi.</p>
+
+                    <p>Alenova leta v Ameriki so ga navdihnila – prevzelo ga je ozračje ulične prehrane, ki je družinsko naravnano. To toplino sva želela prenesti v najin lokal. Zato Alen vsako jutro zamesi in sveže speče brioche žemljice za najboljše burgerje v mestu. Kar gre narediti, narediva sama.</p>
+
+                    <p>Ko vstopite v Mandl, postanete del naše družine. Sproščenost, osebni pristop in kakovost namesto masovne proizvodnje – to je naša filozofija.</p>
+                </div>
+
+                <div class="polaroid main-photo">
+                    <img src="images/tanja-alen-kuhinja.jpg" alt="Tanja in Alen v kuhinji">
+                    <span class="polaroid-caption">Tanja & Alen</span>
+                </div>
+            </div>
+
+            <!-- Citat -->
+            <div class="quote-box">
+                <p>Obiskovalcem želiva ponuditi sproščeno okolje, kjer se lahko počutijo kot del naše Mandl družine. Poudarek na osebnem pristopu in interakciji med nama in gosti je ključen.</p>
+                <span class="author">— Tanja & Alen, lastnika</span>
+            </div>
+
+            <!-- Stena spominov - 3 slike -->
+            <div class="memory-wall">
+                <div class="polaroid">
+                    <img src="images/alen-terasa.jpg" alt="Alen pripravlja jedi na terasi">
+                    <span class="polaroid-caption">Alen v akciji :)</span>
+                </div>
+                <div class="polaroid">
+                    <img src="images/tanja-hrana.jpg" alt="Tanja s hrano">
+                    <span class="polaroid-caption">Sveže iz kuhinje!</span>
+                </div>
+                <div class="polaroid">
+                    <img src="images/ekipa.jpg" alt="Mandl ekipa">
+                    <span class="polaroid-caption">Naša Mandl družina</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENI SEKCIJA -->
+    <section id="meni" class="menu-section">
+        <div class="container">
+            <div class="menu-header">
+                <h2>Naš meni</h2>
+                <p>Vsaka jed pripravljena s srcem. Alen vsako jutro sveže speče brioche žemljice, omake so domače, sestavine od lokalnih dobaviteljev.</p>
+                <span class="menu-badge"><i class="fas fa-leaf"></i> Vse domače</span>
+            </div>
+
+            <!-- KULINARIČNI DNEVNIK -->
+            <div class="cookbook">
+                <!-- Zavihki kot zaznamki -->
+                <div class="cookbook-tabs">
+                    <button class="cookbook-tab active" onclick="showCookbookPage('burgerji')">
+                        <i class="fas fa-hamburger"></i>
+                        <span>Burgerji</span>
+                    </button>
+                    <button class="cookbook-tab" onclick="showCookbookPage('ribsi')">
+                        <i class="fas fa-drumstick-bite"></i>
+                        <span>Ribsi</span>
+                    </button>
+                    <button class="cookbook-tab" onclick="showCookbookPage('solate')">
+                        <i class="fas fa-seedling"></i>
+                        <span>Solate</span>
+                    </button>
+                    <button class="cookbook-tab" onclick="showCookbookPage('brunch')">
+                        <i class="fas fa-coffee"></i>
+                        <span>Brunch</span>
+                    </button>
+                    <button class="cookbook-tab" onclick="showCookbookPage('priloge')">
+                        <i class="fas fa-cookie"></i>
+                        <span>Priloge</span>
+                    </button>
+                </div>
+
+                <!-- STRAN: BURGERJI -->
+                <div id="page-burgerji" class="cookbook-page active">
+                    <div class="cookbook-image">
+                        <img src="images/burger-menu.jpg" alt="Mandl Signature Burger">
+                        <div class="cookbook-image-caption">Najboljši v mestu!</div>
+                        <div class="cookbook-image-note">Sveže pečeno vsak dan!</div>
+                    </div>
+                    <div class="cookbook-content">
+                        <h3 class="cookbook-title">Burgerji</h3>
+                        <p class="cookbook-subtitle">Alenova specialiteta</p>
+                        <p class="cookbook-intro">Vsak burger je pripravljen na sveže pečeni brioche žemljici, ki jo Alen zamesi in speče vsako jutro. Postreženi s hrustljavim krompirčkom in domačo hišno omako.</p>
+
+                        <div class="dish-list">
+                            <div class="dish-item">
+                                <div class="dish-header">
+                                    <span class="dish-name">Klasični burger</span>
+                                    <span class="dish-line"></span>
+                                </div>
+                                <p class="dish-description">Brezčasna klasika. Sočna uležana govedina, pečena na vročem oglju, s topljenem cheddar sirom, hrustljavo solato, svežim paradižnikom in našo skrivno burger omako.</p>
+                                <span class="dish-icon">🍔</span>
+                            </div>
+
+                            <div class="dish-item">
+                                <div class="dish-header">
+                                    <span class="dish-name">Burger z mandljevim maslom</span>
+                                    <span class="dish-line"></span>
+                                    <span class="dish-badge">SIGNATURE</span>
+                                </div>
+                                <p class="dish-description">Naša hišna specialiteta! Sočna govedina, hrustljava slanina, zorjen cheddar, sladka čebulna marmelada in kremno mandljevo maslo ustvarijo nepozabno kombinacijo okusov.</p>
+                                <span class="dish-icon">⭐</span>
+                            </div>
+
+                            <div class="dish-item">
+                                <div class="dish-header">
+                                    <span class="dish-name">Burger s karameliziran hruško</span>
+                                    <span class="dish-line"></span>
+                                </div>
+                                <p class="dish-description">Sladko-slano popolnstvo. Sočna govedina, hrustljava slanina, zorjen cheddar, kisana čebula in sladka karamelizirana hruška — presenetljiva kombinacija.</p>
+                                <span class="dish-icon">🍐</span>
+                            </div>
+
+                            <div class="dish-item">
+                                <div class="dish-header">
+                                    <span class="dish-name">Jalapeño burger</span>
+                                    <span class="dish-line"></span>
+                                    <span class="dish-badge spicy">PIKANTNO</span>
+                                </div>
+                                <p class="dish-description">Za ljubitelje pekočega! Sočna govedina, hrustljava slanina, kremna sirova omaka, ognjevite jalapeño paprike in sladka karamelizirana čebula.</p>
+                                <span class="dish-icon">🌶️</span>
+                            </div>
+
+                            <div class="dish-item">
+                                <div class="dish-header">
+                                    <span class="dish-name">Tartuf burger</span>
+                                    <span class="dish-line"></span>
+                                    <span class="dish-badge premium">PREMIUM</span>
+                                </div>
+                                <p class="dish-description">Za prave gurmane. Sočna govedina, kremni sirov namaz, aromatična tartufova majoneza, hrustljava slanina, gauda sir in svež nariban tartuf.</p>
+                                <span class="dish-icon">👑</span>
+                            </div>
+
+                            <div class="dish-item">
+                                <div class="dish-header">
+                                    <span class="dish-name">Piščančji burger</span>
+                                    <span class="dish-line"></span>
+                                </div>
+                                <p class="dish-description">Nežno mariniran piščanec, ocvrt do zlate hrustljavosti v panko drobtinah, z aromatično česnovo majonezo in sladko medeno gorčico.</p>
+                                <span class="dish-icon">🐔</span>
+                            </div>
+
+                            <div class="dish-item">
+                                <div class="dish-header">
+                                    <span class="dish-name">Pulled chicken burger</span>
+                                    <span class="dish-line"></span>
+                                </div>
+                                <p class="dish-description">Počasi kuhana in nežno natrgana piščančja prsa, prepojeno z okusi, s hrustljavo solato, kisano čebulo in topljenem cheddarjem.</p>
+                                <span class="dish-icon">🍗</span>
+                            </div>
+
+                            <div class="dish-item">
+                                <div class="dish-header">
+                                    <span class="dish-name">Veganski burger</span>
+                                    <span class="dish-line"></span>
+                                    <span class="dish-badge vegan">VEGAN</span>
+                                </div>
+                                <p class="dish-description">Dokazuje, da je lahko veganska hrana neustavljivo okusna! Sočen Amaze polpet, osvežilna limetina majoneza, hrustljava solata in karameliziran češnjev paradižnik.</p>
+                                <span class="dish-icon">🌱</span>
+                            </div>
+                        </div>
+                    </div>
+                    <i class="cookbook-decoration top-right fas fa-utensils"></i>
+                </div>
+
+                <!-- STRAN: RIBSI -->
+                <div id="page-ribsi" class="cookbook-page">
+                    <div class="cookbook-image">
+                        <img src="images/ribs.jpg" alt="Mandl Goveji Ribsi">
+                        <div class="cookbook-image-caption">Odpadejo s kosti!</div>
+                        <div class="cookbook-image-note">Počasi kuhani do popolnosti</div>
+                    </div>
+                    <div class="cookbook-content">
+                        <h3 class="cookbook-title">Goveji ribsi</h3>
+                        <p class="cookbook-subtitle">Fall-off-the-bone</p>
+                        <p class="cookbook-intro">Nežno počasi kuhani goveji ribsi, ki dobesedno odpadejo s kosti. Postreženi z domačo dimljeno BBQ omako, kremno česnovo majonezo, kisano kumaro in hrustljavim krompirčkom.</p>
+
+                        <div class="dish-list">
+                            <div class="dish-item">
+                                <div class="dish-header">
+                                    <span class="dish-name">Goveji ribsi — mala porcija</span>
+                                    <span class="dish-line"></span>
+                                </div>
+                                <p class="dish-description">Nežni, počasi kuhani goveji ribsi (cca 300g), ki se topijo na jeziku. S hrustljavo kisano čebulo in kumaro, zlatim ocvrtim krompirčkom, bogato dimljeno BBQ omako in kremno česnovo majonezo.</p>
+                                <span class="dish-icon">🍖</span>
+                            </div>
+
+                            <div class="dish-item">
+                                <div class="dish-header">
+                                    <span class="dish-name">Goveji ribsi — velika porcija</span>
+                                    <span class="dish-line"></span>
+                                    <span class="dish-badge">ZA LAČNE</span>
+                                </div>
+                                <p class="dish-description">Obilna porcija (cca 500g) naših legendarnih ribsov! Počasi kuhani do popolnosti, da meso pada s kosti. S hrustljavo kisano čebulo, kumaro, zlatim krompirčkom in našimi domačimi omakami.</p>
+                                <span class="dish-icon">🥩</span>
+                            </div>
+                        </div>
+                    </div>
+                    <i class="cookbook-decoration top-right fas fa-fire"></i>
+                </div>
+
+                <!-- STRAN: SOLATE -->
+                <div id="page-solate" class="cookbook-page">
+                    <div class="cookbook-image">
+                        <img src="images/salad.jpg" alt="Mandl Solata">
+                        <div class="cookbook-image-caption">Sveže vsak dan</div>
+                        <div class="cookbook-image-note">Od lokalnega dobavitelja</div>
+                    </div>
+                    <div class="cookbook-content">
+                        <h3 class="cookbook-title">Solate</h3>
+                        <p class="cookbook-subtitle">Sveže & barvito</p>
+                        <p class="cookbook-intro">Barvite, sveže solate s sezonsko zelenjavo od našega lokalnega dobavitelja. Lahke, a popolnoma sitne — idealne za tiste, ki želijo nekaj lažjega.</p>
+
+                        <div class="dish-list">
+                            <div class="dish-item">
+                                <div class="dish-header">
+                                    <span class="dish-name">Mandl solata</span>
+                                    <span class="dish-line"></span>
+                                    <span class="dish-badge">PRIPOROČAMO</span>
+                                </div>
+                                <p class="dish-description">Barvit solatni mix s sladkimi češnjevimi paradižniki, rubinastimi zrnci granatnega jabolka, kremno mozzarello in dišečo svežo baziliko. Postrežena z osvežilnim jogurtovim prelivom in toplo, hrustljavo domačo fokačo.</p>
+                                <span class="dish-icon">🥗</span>
+                            </div>
+
+                            <div class="dish-item" style="background: rgba(212, 196, 168, 0.15); padding: 20px; border-radius: 10px; margin-top: 20px;">
+                                <p class="dish-description" style="font-style: normal; color: var(--temna-rjava);"><strong>Dodatek po izbiri:</strong> sočen piščanec, nežna govedina ali morske kozice</p>
+                            </div>
+                        </div>
+                    </div>
+                    <i class="cookbook-decoration top-right fas fa-leaf"></i>
+                </div>
+
+                <!-- STRAN: BRUNCH -->
+                <div id="page-brunch" class="cookbook-page">
+                    <div class="cookbook-image">
+                        <img src="images/brunch.jpg" alt="Mandl Nedeljski Brunch">
+                        <div class="cookbook-image-caption">Vsako nedeljo!</div>
+                        <div class="cookbook-image-note">9:00 - 16:00</div>
+                    </div>
+                    <div class="cookbook-content">
+                        <h3 class="cookbook-title">Nedeljski brunch</h3>
+                        <p class="cookbook-subtitle">Popoln začetek dneva</p>
+                        <p class="cookbook-intro">Vsako nedeljo vas razvajamo z božanskim brunchom. Sveže pripravljeni zajtrki, jajčne jedi, avokado toast in še več — vse, kar potrebujete za popoln nedeljski začetek.</p>
+
+                        <div class="dish-list">
+                            <div class="dish-item">
+                                <div class="dish-header">
+                                    <span class="dish-name">Eggs Benedict</span>
+                                    <span class="dish-line"></span>
+                                    <span class="dish-badge">KLASIKA</span>
+                                </div>
+                                <p class="dish-description">Dva nežno poširana jajca na hrustljavi fokači, s sočnim pršutom in kremno holandsko omako. Klasičen brunch, ki nikoli ne razočara.</p>
+                                <span class="dish-icon">🍳</span>
+                            </div>
+
+                            <div class="dish-item">
+                                <div class="dish-header">
+                                    <span class="dish-name">Avokado toast</span>
+                                    <span class="dish-line"></span>
+                                    <span class="dish-badge vegan">VEGAN</span>
+                                </div>
+                                <p class="dish-description">Hrustljav kruh z zrelo avokado kremo, češnjevimi paradižniki, rdečo čebulo in svežo rukolo. Pokapan z ekstra deviškim oljčnim oljem in limoninim sokom.</p>
+                                <span class="dish-icon">🥑</span>
+                            </div>
+
+                            <div class="dish-item">
+                                <div class="dish-header">
+                                    <span class="dish-name">Mandl brunch krožnik</span>
+                                    <span class="dish-line"></span>
+                                    <span class="dish-badge">PRIPOROČAMO</span>
+                                </div>
+                                <p class="dish-description">Vse najboljše na enem krožniku! Umešana jajca, hrustljava slanina, sveža solata, pečen paradižnik, pečene gobe in topla fokača. Idealno za deljenje ali za velike tek.</p>
+                                <span class="dish-icon">🍽️</span>
+                            </div>
+
+                            <div class="dish-item">
+                                <div class="dish-header">
+                                    <span class="dish-name">Palačinke z jagodami</span>
+                                    <span class="dish-line"></span>
+                                </div>
+                                <p class="dish-description">Nežne, puhaste palačinke, postrežene s svežimi jagodami, stepeno smetano in kapljicami javorjevega sirupa. Sladko razvajanje za nedeljsko jutro.</p>
+                                <span class="dish-icon">🥞</span>
+                            </div>
+
+                            <div class="dish-item">
+                                <div class="dish-header">
+                                    <span class="dish-name">Granola skleda</span>
+                                    <span class="dish-line"></span>
+                                    <span class="dish-badge vegan">ZDRAVO</span>
+                                </div>
+                                <p class="dish-description">Hrustljava domača granola z grškim jogurtom, svežim sezonskim sadjem, medom in posipom chia semen. Lahek, a hranljiv začetek dneva.</p>
+                                <span class="dish-icon">🥣</span>
+                            </div>
+                        </div>
+
+                        <div class="dish-item" style="background: rgba(201, 162, 39, 0.1); padding: 20px; border-radius: 10px; margin-top: 30px;">
+                            <p class="dish-description" style="font-style: normal; color: var(--temna-rjava); text-align: center;">
+                                <i class="fas fa-clock" style="color: var(--zlata); margin-right: 8px;"></i>
+                                <strong>Nedeljski brunch:</strong> 9:00 - 16:00 | Rezervacije priporočene!
+                            </p>
+                        </div>
+                    </div>
+                    <i class="cookbook-decoration top-right fas fa-sun"></i>
+                </div>
+
+                <!-- STRAN: PRILOGE -->
+                <div id="page-priloge" class="cookbook-page">
+                    <div class="cookbook-image">
+                        <img src="images/chicken.jpg" alt="Mandl Priloge">
+                        <div class="cookbook-image-caption">Hrustljave dobrote</div>
+                        <div class="cookbook-image-note">Popolne za deljenje!</div>
+                    </div>
+                    <div class="cookbook-content">
+                        <h3 class="cookbook-title">Priloge</h3>
+                        <p class="cookbook-subtitle">Hrustljave dobrote</p>
+                        <p class="cookbook-intro">Hrustljave priloge in prigrizki — popolni za deljenje s prijatelji ali kot slasten dodatek k vaši glavni jedi.</p>
+
+                        <div class="dish-list">
+                            <div class="dish-item">
+                                <div class="dish-header">
+                                    <span class="dish-name">Tartuf pomfrit</span>
+                                    <span class="dish-line"></span>
+                                    <span class="dish-badge premium">PREMIUM</span>
+                                </div>
+                                <p class="dish-description">Zlato ocvrt krompirček, poprškan z aromatičnim tartufovim oljem, posut s svežim rožmarinom in nasekljenim parmezanom. Luksuzna različica klasike, ki vas bo zasvojila.</p>
+                                <span class="dish-icon">🍟</span>
+                            </div>
+
+                            <div class="dish-item">
+                                <div class="dish-header">
+                                    <span class="dish-name">Ocvrt krompirček</span>
+                                    <span class="dish-line"></span>
+                                </div>
+                                <p class="dish-description">Naš klasičen, hrustljav krompirček — zunaj zlato hrustljav, znotraj mehak. Začinjen s skrbno izbranimi začimbami. Preprost, a neustavljivo dober.</p>
+                                <span class="dish-icon">🥔</span>
+                            </div>
+                        </div>
+                    </div>
+                    <i class="cookbook-decoration top-right fas fa-cookie-bite"></i>
+                </div>
+            </div>
+
+            <div class="menu-cta">
+                <a href="https://wolt.com/en/svn/maribor/restaurant/mandl-food-bar" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-motorcycle"></i> Naroči dostavo na Wolt
+                </a>
+                <p class="menu-note">* Cene in razpoložljivost jedi preverite pri naročilu. Meni se lahko sezonsko spreminja.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- OCENE SEKCIJA -->
+    <section id="ocene" class="reviews-section">
+        <div class="container">
+            <div class="reviews-header">
+                <h2>Kaj pravijo gostje</h2>
+                <div class="rating">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span class="rating-text">4.9/5 na podlagi 250+ ocen</span>
+                </div>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Najboljši burger, kar sem jih jedel v Sloveniji! Žemljica je bila neverjetno mehka in sveža, meso sočno. Terasa ob Dravi je čudovita."</p>
+                    <div class="author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <span class="name">Marko P.</span>
+                            <span class="source">TripAdvisor</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Prijazno osebje, odlična hrana, sproščeno vzdušje. Ribsi so bili vrhunski! Zagotovo se bomo vrnili."</p>
+                    <div class="author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <span class="name">Ana K.</span>
+                            <span class="source">Google Reviews</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Mandl je postal naša najljubša destinacija za nedeljski brunch. Vse je sveže, domače in pripravljeno z ljubeznijo. Super lokacija!"</p>
+                    <div class="author">
+                        <div class="author-avatar">T</div>
+                        <div class="author-info">
+                            <span class="name">Tina S.</span>
+                            <span class="source">TripAdvisor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAKT SEKCIJA -->
+    <section id="kontakt" class="contact-section">
+        <div class="container">
+            <div class="contact-header">
+                <h2>Obiščite nas</h2>
+                <p>Komaj čakamo, da vas pozdravimo v Mandlu</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Lokacija</h4>
+                            <p>Ulica Kneza Koclja 6<br>2000 Maribor</p>
+                            <p style="margin-top: 10px; font-style: italic; color: var(--zlata);">Terasa ob Dravi, pod najstarejšim mandljevcem v regiji</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Delovni čas</h4>
+                            <table class="hours-table">
+                                <tr>
+                                    <td>Ponedeljek</td>
+                                    <td class="closed">ZAPRTO</td>
+                                </tr>
+                                <tr>
+                                    <td>Torek - Četrtek</td>
+                                    <td>09:00 - 22:00</td>
+                                </tr>
+                                <tr>
+                                    <td>Petek - Sobota</td>
+                                    <td>09:00 - 23:00</td>
+                                </tr>
+                                <tr>
+                                    <td>Nedelja</td>
+                                    <td>09:00 - 16:00 (brunch)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telefon</h4>
+                            <p><a href="tel:070800629">070 800 629</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <i class="fab fa-instagram"></i>
+                        <div>
+                            <h4>Instagram</h4>
+                            <p><a href="https://www.instagram.com/mandlfoodbar/" target="_blank">@mandlfoodbar</a></p>
+                        </div>
+                    </div>
+
+                    <!-- IZPOSTAVLJEN GUMB ZA REZERVACIJO -->
+                    <a href="tel:070800629" class="reservation-button">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>
+                            <strong>Rezervirajte svojo mizo</strong>
+                            <small>Pokličite nas: 070 800 629</small>
+                        </span>
+                    </a>
+
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/mandlfoodbar/" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tripadvisor.com/Restaurant_Review-g274874-d7702483-Reviews-Mandl_Food_Bar-Maribor_Styria_Region.html" target="_blank" aria-label="TripAdvisor">
+                            <i class="fab fa-tripadvisor"></i>
+                        </a>
+                        <a href="https://www.google.com/maps?q=Mandl+Food+Bar+Maribor" target="_blank" aria-label="Google Maps">
+                            <i class="fab fa-google"></i>
+                        </a>
+                    </div>
+
+                    <a href="https://wolt.com/en/svn/maribor/restaurant/mandl-food-bar" target="_blank" class="wolt-button">
+                        <i class="fas fa-motorcycle"></i> Naroči dostavo preko Wolt
+                    </a>
+                </div>
+
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2743.799893849567!2d15.644661!3d46.557778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476f771b9a0a1c1f%3A0x5a5a5a5a5a5a5a5a!2sUlica%20kneza%20Koclja%206%2C%202000%20Maribor!5e0!3m2!1ssl!2ssi!4v1635000000000!5m2!1ssl!2ssi"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="logo">MANDL <span>&</span> BAR</div>
+            <p>Terasa ob Dravi | Najboljši burgerji v Mariboru</p>
+            <div class="copyright">
+                <p>&copy; 2024 Mandl Food & Bar. Vse pravice pridržane.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Navigation Toggle
+        function toggleNav() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+
+        // Close mobile nav when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(245, 240, 230, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(245, 240, 230, 0.95)';
+            }
+        });
+
+        // Smooth reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.menu-item, .review-card, .info-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Cookbook page switching
+        function showCookbookPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.cookbook-page').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Remove active from all tabs
+            document.querySelectorAll('.cookbook-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected page
+            document.getElementById('page-' + pageId).classList.add('active');
+
+            // Add active to clicked tab
+            event.currentTarget.classList.add('active');
+
+            // Animate dish items
+            document.querySelectorAll('#page-' + pageId + ' .dish-item').forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateX(-20px)';
+                setTimeout(() => {
+                    el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateX(0)';
+                }, index * 100);
+            });
+        }
+
+        // Initial animation for dish items
+        document.querySelectorAll('.cookbook-page.active .dish-item').forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateX(-20px)';
+            setTimeout(() => {
+                el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                el.style.opacity = '1';
+                el.style.transform = 'translateX(0)';
+            }, 500 + index * 100);
+        });
+    </script>
+</body>
+</html>
